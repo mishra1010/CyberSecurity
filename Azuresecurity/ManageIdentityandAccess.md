@@ -213,6 +213,19 @@ Stop-AzVN -Name "VM2" -ResourceGroupName "XXXX" - Force
 
 Connect-AzAccount -Identity
 
+## Managing External Identities
+
+- Enabling External Identities
+
+    1. Azure AD B2B - invite users as guests to Microsoft AAD to provide access to Azure and Azure AD
+
+    Azure AD tenant <---- B2B Direct Connect----> Azure AD Tenant works with MS Teams
+    Azure AD tenant - multi tenants in same org
+
+    2. Using Azure AD B2C
+
+    Access to apps using gmail, facebook etc.
+    used to create  separate tenant for users to provide them access to company-developed apps
 
 
 
