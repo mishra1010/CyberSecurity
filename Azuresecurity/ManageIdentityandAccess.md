@@ -227,6 +227,73 @@ Connect-AzAccount -Identity
     Access to apps using gmail, facebook etc.
     used to create  separate tenant for users to provide them access to company-developed apps
 
+### Managing Authentication
+
+## Enhancing Authentication
+
+1. Leveling up Auth
+
+2. Enabling MFA
+
+3. Security Defaults
+
+Bad Auth set up - If an org has ADDS service onprem or in Azure VM, and users access systems by using it, then SSO cannot be enabled, users need to use multiple logins, Identities might exist across a range of Identity providers and hence there is limited visibility into the identities used in the Org. Leads to unmanaged identities and also exposure of creds in the internet.
+
+First step here is to 
+
+1. Implement SSO for on-prem and cloud apps
+
+2. Gain visibility into the identities used acrosso the org
+
+3. Conditionally request multiple factors of auth based on policies and assist with identity remediation
+
+Best is to have MFA, use passwordless auth, analyze sign-in attributes in real time
+
+
+# MFA
+
+How to enable?
+
+Depends on licenses you have for AAD
+
+1. Free version of AAD - MFA can be enabled on a per user basis and its legacy now
+
+2. Security defaults is the way to enable MFA and other best practices in free version of AAD now
+
+3. M365 for business (E3, E5) for MFA - for all users unconditionally
+
+4. Azure AD Premium P1 - Conditional access based on scenarios or events at login
+
+5. Azure AD Premium P2 - Risk-based conditional Access policies to improve user experience
+
+Security Defaults Enabled? what users get?
+
+1. All users will be required to register for Azure AD MFA
+
+2. Admins will need to perform MFA
+
+3. Users will need to perform MFA when necessary
+
+4. Legacy authentication protocols are blocked
+
+5. Privilege management activities need MFA
+
+For more control on MFA, you need premium licenses and conditional access
+
+Summary -
+
+1. Security Defaults provide a baseline level of protection for all Azure AD users.
+
+2. When you enable security defaults, users will have 14 days after the first login to enable MFA
+
+3. Azure AD premium p1 provides conditional access based on scenarios or events at login
+
+4. Azure AD premium p2 provides risk-based conditional access policies to improve user experience
+
+
+
+
+
 
 
 
