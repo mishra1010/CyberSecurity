@@ -290,10 +290,164 @@ Summary -
 
 4. Azure AD premium p2 provides risk-based conditional access policies to improve user experience
 
+# Implementing Conditional Access
+
+1. Details about conditional access
+
+2. Creating conditional access
+
+CAP - is mainly if and else. if (user account, groups, devices, device location, application being accessed, Risks associated in case user has p2 license ) -> Then give access and based on what condition (MFA, Approved client app, compliant device, Azure AD joined device)
+
+License Requirements
+
+1. All CAP require atleast AAD Premium P1
+
+2. Risk-based policies require atleast AAD Premium P2
+
+User Requirements
+
+1. Conditional Access Admin or Security Administrator at minimum
+
+2. Test user account and group if required to test
+
+AAD -> Security -> Conditional Access -> Create policy from template -> Require MFA for Admins
+
+Click policies and assign users and under what conditions. Access controls define the control after access (MFA, Auth App)
+
+Policy used to block legacy auth protocols -> Legacy access block template
+
+Conditional Access -> Named locations -> Country or IP ranges
+
+Test policies and then publish
+
+# protecting Identities
+
+1. Identity Protection
+
+2. Configuring Identity Protection
+
+3. Password Protection
+
+AAD is the primary security boundary for any organization. Ithas a few tools which can protect identities -
+
+1. Azure AD Identity Protection - works with automatic detection of identity risks - user risk, sign-in risk
+
+Risks are classified as high, medium, low
+
+3 benefits -
+
+1. Challenge Risky sign-ins - like enable MFA in cases
+
+2. Time to respond by having self-remediation
+
+3. Reduces IT teams overhead
+
+Configure Identity Protection -
+
+1. Need Azure AD premium P2 license
+
+2. Conditional Access Admin or security administrator
+
+3. Test user account
+
+AzureAD also provides a mechanism to protect passwords and that is through Password Protection - detects and blocks weak and same version of passwords. Also blocks weak password based on your organization.
+
+Users can use ADDS to make pwd changes if its being used also can happen in Domain controllers in On-prem. These have Azure AD password protection agent deployed
+
+License requirements
+
+1. Banned pwd list is included with all licenses
+
+2. Custom banned pwd lists require atleast one Azure AD Premium P1 license
+
+User Requirements -
+
+1. Security Admin Role
+
+2. Active Directory Domain Administrator for on-prem AD
+
+3. Test user account
+
+AAD -> Security -> Identity protection -> Risky users, configure alerts, weekly digest
+
+Security -> Authentiction Methods -> Policies, Password Protection
+
+# Summary
+
+1. User risk is the probability that an identity is compromised
+
+2. Sign-in risk is the probability that a sign-in is compromised
+
+3. To configure identity protection, you need conditional access administrator role and an Azure AD premium p2 license
+
+4. Custom banned password lists require an Azure AD premium P1 license
+
+5. Each AD DS domain controller requires 2 agents for complete protection
 
 
+## Deploying Single Sign-on (SSO)
 
+1. Hybrid Identity
 
+2. Hybrid Identity Authentication Methods
+
+3. Exploring Password Writeback
+
+4. Azure AD connect cloud sync requirements
+
+AD DS (on-prem has domain controller) can sync with AAD using AD connect
+
+Sync Methods -
+
+1. Azure AD connect sync - Legacy
+
+2. Azure AD connect cloud sync
+
+Authentication Methods
+
+- Password hash synchronization
+Good user experience, business continuity and supports identity protection. only issue is it does not sync back with AD DS and hence AD DS account restrictions are not applied
+
+- pass-through authentication
+Good user experience, AD DS account restrictions are applied. No support for Azure AD connect cloud sync
+
+- Federation - All aithentication occurs on-premises, can be complex and difficult to maintain, requires password hash synchronization for business continuity
+
+Password Writeback -
+
+Once we deploy Azure AD connect in our env, we get another functionality to writeback passwords to AD DS from Azure AD. This needs Azure AD premium p1 license.
+
+Password writeback provides several key features -
+
+1. Ability for users to reset passwords from Azure portal and then write back these to AD DS
+
+2. Ability for users to update their own passwords (self-service password reset sspr)
+
+3. Password writeback also helps to meet ADDS password policy compliance when pwd is updated in AAD
+
+4. SSPR using password writeback allows users to remediate user-risk and password risk issues even when connected to corporate AD DS network without any intervention from the IT team
+
+Requirements for Azure AD connect cloud sync
+
+Azure AD domain requirements
+
+- Atleast one custom domain added
+
+Azure AD user requirements
+
+- cloud-only global admin or hybrid identity admin
+
+AD DS User requirements
+
+- AD DS domain administrator
+
+Server requirements
+
+- Atleast Windows Server 2016
+- 4 GB RAM
+- .NET 4.7.1 or later
+
+Azure AD connect cloud sync uses provisioning agents deployed to AD DS member servers to synchronize identities to Azure AD. Atleast 2 agents are needed for HA (High Availability)
 
 
 
