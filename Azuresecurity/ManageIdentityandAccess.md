@@ -96,7 +96,7 @@ Groups make management of users easier. SG - Users, SPNs.IT team, infra team, ap
 
 - Group Lifecycle
 
-# Group Membership
+### Group Membership
 
 1. Manual
 
@@ -104,7 +104,7 @@ Groups make management of users easier. SG - Users, SPNs.IT team, infra team, ap
 
 M365 groups cannot contain devices
 
-# Group Lifecycle
+#### Group Lifecycle
 
 1. Create - Any AAD user
 
@@ -114,7 +114,7 @@ M365 groups cannot contain devices
 
 4. Delete - Group Owners and Administrative roles, Deleted M365 groupsare retained for 30 days, SG get permanently deleted
 
-# Managing Service Principals
+##### Managing Service Principals
 
 - Understand SPN
 
@@ -130,7 +130,7 @@ Assign roles and permissions to SPNs asusers. Delegated permissions can also be 
 
 There are some resources which do not support Managed Identity, hence SPN can be used in those cases, SPNs can be used outside of Azure. SPNs can be created in multiple tenants.
 
-# Authentication using SPN
+##### Authentication using SPN
 
 1. Password based Auth (secret and app id)
 
@@ -146,7 +146,7 @@ Cloud App Administrator - can manage allapplication registration, request consen
 
 Application Administrator - can approve non-Microsoft graph consent requests and manage Application proxy
 
-# Creation of SPN
+#### Creation of SPN
 
 1. Portal
 
@@ -157,7 +157,7 @@ Application Administrator - can approve non-Microsoft graph consent requests and
     3. $SP = New-AzADServicePrincipal - DisplayName "CTApp"
     4. $SP.PasswordCredentials.SecretText
 
-# Summary
+#### Summary
 
 - An app registration is a global identity for your app
 
@@ -169,7 +169,7 @@ Application Administrator - can approve non-Microsoft graph consent requests and
 
 - Certificate-based auth is recommended when usingself-managed SPNs
 
-## Managing Identities for Azure Resources (MI)
+### Managing Identities for Azure Resources (MI)
 
 - Understand MI, authN and authZ
 
@@ -213,7 +213,7 @@ Stop-AzVN -Name "VM2" -ResourceGroupName "XXXX" - Force
 
 Connect-AzAccount -Identity
 
-## Managing External Identities
+### Managing External Identities
 
 - Enabling External Identities
 
@@ -227,9 +227,9 @@ Connect-AzAccount -Identity
     Access to apps using gmail, facebook etc.
     used to create  separate tenant for users to provide them access to company-developed apps
 
-### Managing Authentication
+## Managing Authentication
 
-## Enhancing Authentication
+### Enhancing Authentication
 
 1. Leveling up Auth
 
@@ -250,7 +250,7 @@ First step here is to
 Best is to have MFA, use passwordless auth, analyze sign-in attributes in real time
 
 
-# MFA
+#### MFA
 
 How to enable?
 
@@ -290,7 +290,7 @@ Summary -
 
 4. Azure AD premium p2 provides risk-based conditional access policies to improve user experience
 
-# Implementing Conditional Access
+#### Implementing Conditional Access
 
 1. Details about conditional access
 
@@ -320,7 +320,7 @@ Conditional Access -> Named locations -> Country or IP ranges
 
 Test policies and then publish
 
-# protecting Identities
+#### protecting Identities
 
 1. Identity Protection
 
@@ -372,7 +372,7 @@ AAD -> Security -> Identity protection -> Risky users, configure alerts, weekly 
 
 Security -> Authentiction Methods -> Policies, Password Protection
 
-# Summary
+#### Summary
 
 1. User risk is the probability that an identity is compromised
 
@@ -385,7 +385,7 @@ Security -> Authentiction Methods -> Policies, Password Protection
 5. Each AD DS domain controller requires 2 agents for complete protection
 
 
-## Deploying Single Sign-on (SSO)
+### Deploying Single Sign-on (SSO)
 
 1. Hybrid Identity
 
@@ -449,7 +449,7 @@ Server requirements
 
 Azure AD connect cloud sync uses provisioning agents deployed to AD DS member servers to synchronize identities to Azure AD. Atleast 2 agents are needed for HA (High Availability)
 
-# Going Passwordless
+### Going Passwordless
 
 1. Passwordless Authentication - best way
 
@@ -481,7 +481,7 @@ Summary
 - Use FIDO2-complint security keyswhere use of phones is restricted , such as call center or for high privilege
 identities
 
-# Decentralizing Identity
+### Decentralizing Identity
 
 Next gen of identity - decentralized identity and how users can take their identity with themselves
 
@@ -499,6 +499,8 @@ What do we need for this? AAD tenant -> Azure Sub -> KV, storage, webapp, dns. u
 
 Role - Global admin or Auth policy admin and App admin
 Contributor access to manage app
+
+## Managing Authorization
 
 
 
