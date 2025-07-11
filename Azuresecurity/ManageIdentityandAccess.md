@@ -449,6 +449,59 @@ Server requirements
 
 Azure AD connect cloud sync uses provisioning agents deployed to AD DS member servers to synchronize identities to Azure AD. Atleast 2 agents are needed for HA (High Availability)
 
+# Going Passwordless
+
+1. Passwordless Authentication - best way
+
+2. Authentication options
+
+windows hello for business - uses pin
+MS Authenticator
+FIDO2-compliant security keys where mobiles are not available
+
+3. Azure AD passwordless requirements
+
+Azure AD role assignment - To configure registration and authentication methods we need
+
+Authentication policy admin
+
+Use passwordless wizard to determine additional requirements
+
+https://aka.ma/passwordlesswizard
+
+
+Summary 
+
+- Passwordless authentication is easier to use and more secure than authentication that involves passwords
+
+- Use Windows hello for business where users use a dedicated windows device everyday
+
+- MS authenticator where user uses a non-windows device
+
+- Use FIDO2-complint security keyswhere use of phones is restricted , such as call center or for high privilege
+identities
+
+# Decentralizing Identity
+
+Next gen of identity - decentralized identity and how users can take their identity with themselves
+
+Identities - user - facebook, github etc. we do not know how these identities are stored.
+
+Decentralized concept takes identity of user from identity providers to users where they cantake it and store it themselves without depending on identity providers.
+
+3 components -
+
+1. Issuer -who issues the identity, User has digital wallet to verify.
+
+Ex- MS entra can issue Decentralized identities
+
+What do we need for this? AAD tenant -> Azure Sub -> KV, storage, webapp, dns. users can have MS Authenticator
+
+Role - Global admin or Auth policy admin and App admin
+Contributor access to manage app
+
+
+
 
 
 
