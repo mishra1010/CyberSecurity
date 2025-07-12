@@ -502,6 +502,52 @@ Contributor access to manage app
 
 ## Managing Authorization
 
+Access Management
+
+Users -> AAD Tenant, Azure Subscription [Default permissions, No permissions]
+
+Role Definition (defines which actions can be performed and where the actions can be performed (Scope)) - Helpdesk -> Add user, update user and Add groups
+
+Access management hierarchy
+
+Azure management hierarchy
+
+AAD -> Apps, users, Groups 
+
+Azure Subscription - owner, contributor
+
+Management Group are used to group subscriptions together. There is a root management group under which more MGs can be created
+
+AAD (AAD roles) -> /Root -> Root MG -> MG -> Azure Sub (Azure Roles) -> Resource Group -> Azure Resources
+
+Administrative units
+
+AAD resource used for managing other AAD resource
+
+Azure Active Directory Premium P1 license is required for each administrative unit administrator
+
+Administrative units cannot be nested
+
+Only direct administrative group members can be managed
+
+AU does not effect on default user permissions, user will have default permissions regardless of any admirole assignments to administrative units
+
+Managing Azure AD Permission scopes
+
+
+### Summary 
+
+- A global admin must elevate access to manage the root management group
+
+- Azure AD roles can be scoped to the tenant, an application reg, or an administrative unit
+
+- Azure RBAC roles can be scoped to a management group, subscription, rg, or indivisudl resource
+
+- An azure AD premium P1 license is needed for each administrative unit administrator
+
+- Administrative units cannot be nested
+
+
 
 
 
