@@ -547,9 +547,104 @@ Managing Azure AD Permission scopes
 
 - Administrative units cannot be nested
 
+## Using built-in Roles
+
+Using built-in roles across Azure AD and Azure
+
+- Differentiate Azure AD roles
+
+- Azure Role types
+
+- Differentiating Azure Roles
+
+- Assigning roles using groups
+
+Job function or service -> Access level
+
+Access Level - Admin, Developer or operator, Reader
+
+Admin - Most privileged
+
+Reader - Least privileged
+
+Azure Role Types -
+
+1. Privileged Administrator Roles
+
+Should be used sparingly, can manage access for other users, grant privileged access
+
+2. Job function Roles
+
+allow the management of specific azure resources
+
+should be used whenever possible
+
+3. Custom Roles
+
+Enable granular permission assignment
+
+can be used to effectively apply the principle of least privilege
+
+4. Classic Subscription Admin Roles - Legacy
+
+Account admin, service admin, co-admin
 
 
+Control plane permissions - Manage Azure Resources
 
+Follows the following convention
+
+Resource -> Access Level
+
+owner, contributor,operator, developer, reader
+
+Ex- VM - contributor
+storage - contributor
+
+Least privilege needs to be followed
+
+Data plane permissions - Manage data stored within Azure Resources
+
+Convention
+
+Resource -> Sub-resource(optional) -> Data -> Access Level
+
+ex - Storage Blob Data Contributor
+
+owner, Elevated/Privileged, contributor,reader mostly used
+
+## Assigning roles using groups
+
+Azure AD - 
+
+Use role- assignable groups
+
+Must be configured as role-assignable upon creation
+
+Requires Premium P1
+
+Requires at least the least privileged role admin role
+
+Membership must be assigned
+
+Both M365 and security group types can be used
+
+Group nesting is not supported
+
+
+Azure  - Using Rbac roles
+
+Create group in azure ad
+
+Assign the role to the group at desired scope in Azure management hierarchy
+
+membership can be assigned or dynamic
+
+Both M365 and security group types can be used
+
+To assign Azure roles, you need at least the user access admin role
+
+Azure roles can be assigned at either the control plane or the data plane
 
 
 
