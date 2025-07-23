@@ -613,7 +613,7 @@ ex - Storage Blob Data Contributor
 
 owner, Elevated/Privileged, contributor,reader mostly used
 
-## Assigning roles using groups
+### Assigning roles using groups
 
 Azure AD - 
 
@@ -645,6 +645,51 @@ Both M365 and security group types can be used
 To assign Azure roles, you need at least the user access admin role
 
 Azure roles can be assigned at either the control plane or the data plane
+
+
+### Customizing roles
+
+Required for fine grained permission requirements
+
+Customizing Azure AD Roles
+
+Type/subtype/propertyset/permission
+
+Role - microsoft.directory/users or applications/contact info or authentication(opt)/update or read
+
+Then create role assignment for users or groups scoped to Tenant, AU and Applications
+
+Sigle role can be assigned to one or more user or groups making it reusable
+
+Customizing Azure Roles
+
+Azure Roles are more complex than the Azure AD roles. These are defined as actions in the control plane or Data plane.
+
+Control Plane Actions - Actions, Not Actions
+
+Data Plane Actions - DataActions, Not Data Actions
+
+Company.provider Name /Resource Type/Action
+
+Microsoft.Compute/VirtualMachine/* or Read
+
+Microsoft.Observability/Accounts/* or Read
+
+Assignable Scopes - MG, Subscription, RG etc.
+
+Custom Role requirements
+
+1. Azure AD premium p1 license at least
+
+2. At least privileged Admin role
+
+For Custom Azure Role - At least User Access Admin role and no license requirements
+
+Summary
+
+Not Actions in Azure RBAC roles are exclusions to the actions, not deny permissions.
+
+Assignable scopes re used to define the scope to which an Azure RBAC role can be assigned to.
 
 
 
